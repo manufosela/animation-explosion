@@ -1,7 +1,7 @@
 {
   "name": "animation-explosion",
   "description": "Lit-Element webcomponent animation-explosion",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "animation-explosion.js",
   "repository": {
     "type": "git",

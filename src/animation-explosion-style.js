@@ -18,5 +18,6 @@ export const wcNameStyles = css`
 
   canvas {
     pointer-events: none;
+    border-radius: 50%;
   }
 `;

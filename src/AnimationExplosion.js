@@ -80,7 +80,7 @@ export class AnimationExplosion extends LitElement {
     }
   }
 
-  showExplosion(xPos, yPos, timetoExplode = 0) {
+  showExplosion(timetoExplode = 0) {
     setTimeout(()=>{
       this.explode();
     }, timetoExplode);
