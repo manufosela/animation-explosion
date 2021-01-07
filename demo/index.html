@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+  <head>
+    <title>animation-explosion demo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+    <script type="module" src="../animation-explosion.js"></script>
+    <style>
+      .blocks {
+        display:flex;
+        flex-direction:row;
+        flex-wrap: wrap;
+      }
+      .block {
+        display:flex;
+        flex-direction:column;
+        flex-wrap: wrap;
+        white-space: normal;
+      }
+      .code {
+        padding: 20px;
+        color:#FFF; 
+        background: #000;
+      }
+      .attributes {
+        padding-left: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="vertical-section-container centered">
+      <h3>Basic animation-explosion Demo</h3>
+      <div class="blocks">
+        <pre class="block code">
+          <code>
+            &lt;animation-explosion&gt;&lt;/animation-explosion&gt;
+          </code>
+        </pre>
+        <pre class="block attributes">
+          <h3>Attributes</h3>
+          <ul>
+            <li>buble-colors (Array)</li>
+            <li>bubles (Number)</li>
+          </ul>
+          <h3>Events Listening</h3>
+          <ul>
+            <li>animation-explosion_explode</li>
+          </ul>
+        </pre>
+        <pre class="block attributes">
+          <h3>showExplosion(xPos, yPos, timetoExplode)</h3>
+          <ul>
+            <li>xPos: posición X en pixeles</li>
+            <li>yPos: posición Y en pixeles</li>
+            <li>timetoExplode: tiempo em ms para la explosión</li>
+          </ul>
+        </pre>
+      </div>
+    </div>
+    
+    <button id="explosion1Btn">Explode</button>
+    <button id="explosion2Btn">Explode2</button>
+    <animation-explosion id="explosion1" bubles="100" size="200"></animation-explosion>
+    <animation-explosion id="explosion2" bubles="20" size="400" buble-colors="#F00,#0F0,#00F,#FF0,#0FF"></animation-explosion>
+
+    <script>
+      window.onload = function() {
+        document.getElementById('explosion1Btn').addEventListener('click', (ev) => {
+          const animationExplosion = document.getElementById('explosion1');
+          animationExplosion.showExplosion(200,300);
+        });
+        document.getElementById('explosion2Btn').addEventListener('click', (ev) => {
+          const animationExplosion = document.getElementById('explosion2');
+          animationExplosion.showExplosion(1,1);
+        });
+      }
+    </script>
+  </body>
+</html>
