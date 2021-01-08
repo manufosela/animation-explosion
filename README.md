@@ -1,4 +1,4 @@
-# animation-explosion
+# animation-explosion [![npm-package](https://img.shields.io/badge/npmjs-package-red)](https://www.npmjs.com/package/animation-explosion)
 
 Lit-Element web component description
 
