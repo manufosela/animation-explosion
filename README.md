@@ -24,20 +24,21 @@ Lit-Element web component to show a bubles explosion
 <animation-explosion></animation-explosion>
 
 ```
-## Install the Polymer-CLI
-
-First, make sure you have the [Polymer CLI](https://www.npmjs.com/package/polymer-cli) and npm (packaged with [Node.js](https://nodejs.org)) installed. Run `npm install` to install your element's dependencies, then run `polymer serve` to serve your element locally.
+## Install
+```
+npm install animation-explosion
+```
 
 ## Viewing Your Element
 
 ```
-$ polymer serve
+npm run start
 ```
 
 ## Running Tests
 
 ```
-$ polymer test
+$ npm run test
 ```
 
 ## Build
@@ -48,7 +49,7 @@ $ npm run build
 Your application is already set up to be tested via [web-component-tester](https://github.com/Polymer/web-component-tester). Run `polymer test` to run your application's test suite locally.
 
 ##Author
-**user**
+**manufosela**
 
 ## License
 
