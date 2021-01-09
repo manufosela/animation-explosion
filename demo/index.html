@@ -5,64 +5,84 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
     <script type="module" src="../animation-explosion.js"></script>
-    <style>
-      .blocks {
-        display:flex;
-        flex-direction:row;
-        flex-wrap: wrap;
-      }
-      .block {
-        display:flex;
-        flex-direction:column;
-        flex-wrap: wrap;
-        white-space: normal;
-      }
-      .code {
-        padding: 20px;
-        color:#FFF; 
-        background: #000;
-      }
-      .attributes {
-        padding-left: 20px;
-      }
-    </style>
+    <link rel="stylesheet" href="css/styles.css" />
   </head>
 
   <body>
-    <div class="vertical-section-container centered">
-      <h3>Basic animation-explosion Demo</h3>
-      <div class="blocks">
+    <div class="container">
+      <header>
+        <h1>Basic animation-explosion Demo</h1>
+        <nav>
+          <a href="https://github.com/manufosela/animation-explosion" title="github public repository">
+            <img src="https://img.shields.io/badge/github-repository-green" alt="github" />
+          </a>
+          <a href="https://www.npmjs.com/package/animation-explosion" title="npm package animation-explosion">
+            <img src="https://img.shields.io/badge/npmjs-package-red" alt="npm-package" />
+          </a>
+          <a href="https://codepen.io/manufosela/pen/wvzXVYd" title="codepen.io example">
+            <img src="https://img.shields.io/badge/codepen.io-example-black" alt="codepen.io example" />
+          </a>
+        </nav>
+      </header>
+      <aside class="blocks">
         <pre class="block code">
+          <h3>Example</h3>
           <code>
-            &lt;animation-explosion&gt;&lt;/animation-explosion&gt;
+            &lt;<span class="wc">animation-explosion</span><br>
+            &nbsp;&nbsp;width="900"<br>
+            &nbsp;&nbsp;height="300"<br>
+            &nbsp;&nbsp;time="5"<br>
+            &nbsp;&nbsp;background="#000"&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;img src="img/animation-explosion-demo1.png" /&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;img src="img/animation-explosion-demo2.png" /&gt;<br>
+            &lt;/<span class="wc">animation-explosion</span>&gt;
           </code>
         </pre>
         <pre class="block attributes">
           <h3>Attributes</h3>
           <ul>
-            <li>buble-colors (Array)</li>
-            <li>bubles (Number)</li>
+            <li>time (String) [0] (it can be 'mouse' or a number of seconds</li>
+            <li>width (Number) [800]</li>
+            <li>height (Number) [400]</li>
+            <li>background (String) [#000]</li>
           </ul>
-          <h3>Events Listening</h3>
+          <h3>Events</h3>
           <ul>
-            <li>animation-explosion_explode</li>
+            <li>animation-explosion_change-image</li>
+            <li>animation-explosion_change-image-without-reset</li>
           </ul>
+          <p class="note">
+            NOTE: Send element id into 
+            detail CustomEvent
+          </p>
         </pre>
-        <pre class="block attributes">
-          <h3>showExplosion(xPos, yPos, timetoExplode)</h3>
-          <ul>
-            <li>xPos: posición X en pixeles</li>
-            <li>yPos: posición Y en pixeles</li>
-            <li>timetoExplode: tiempo em ms para la explosión</li>
-          </ul>
-        </pre>
-      </div>
+      </aside>
+      
+      <main>
+        <div id="example1" class="block">
+          <fieldset>
+            <div>
+              <h3>Example 1</h3>
+              <p>Click buttons to show explosion example 1</p>
+            </div>
+            <button id="explosion1Btn">Explode</button>
+          </fieldset>
+          <animation-explosion id="explosion1" bubles="100" size="200"></animation-explosion>
+        </div>
+        <div id="example2" class="block">
+          <fieldset>
+            <div>
+              <h3>Example 2</h3>
+              <p>Click buttons to show explosion example 2</p>
+            </div>
+            <button id="explosion2Btn">Explode2</button>
+          </fieldset>
+          <animation-explosion id="explosion2" bubles="20" size="400" buble-colors="#F00,#0F0,#00F,#FF0,#0FF"></animation-explosion>
+        </div>
+      </main>
+
+      <footer>developed by <b>@manufosela</</footer>
     </div>
-    
-    <button id="explosion1Btn">Explode</button>
-    <button id="explosion2Btn">Explode2</button>
-    <animation-explosion id="explosion1" bubles="100" size="200"></animation-explosion>
-    <animation-explosion id="explosion2" bubles="20" size="400" buble-colors="#F00,#0F0,#00F,#FF0,#0FF"></animation-explosion>
 
     <script>
       window.onload = function() {
