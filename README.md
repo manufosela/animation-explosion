@@ -1,4 +1,5 @@
-# animation-explosion [![npm-package](https://img.shields.io/badge/npmjs-package-red)](https://www.npmjs.com/package/animation-explosion)
+# animation-explosion [![npm-package](https://img.shields.io/badge/npmjs-package-red)](https://www.npmjs.com/package/animation-explosion) [![github](https://img.shields.io/badge/github-repository-green)](https://github.com/manu/animation-explosion) [![codepen-example](https://img.shields.io/badge/codepen-example-black)](https://codepen.io/manufosela/pen/wvzXVYd)
+
 
 Lit-Element web component to show a bubles explosion
 
@@ -48,7 +49,7 @@ $ npm run build
 
 Your application is already set up to be tested via [web-component-tester](https://github.com/Polymer/web-component-tester). Run `polymer test` to run your application's test suite locally.
 
-##Author
+## Author
 **manufosela**
 
 ## License
