@@ -61,22 +61,45 @@
         <div id="example1" class="block">
           <fieldset>
             <div>
-              <h3>Example 1</h3>
-              <p>Click button to show explosion example 1</p>
+              <h3>Default Example</h3>
+              <p>Click button to show default explosion example</p>
             </div>
-            <button id="explosion1Btn">Explode 1</button>
+            <button id="explosion1Btn">Explode</button>
           </fieldset>
           <animation-explosion id="explosion1" bubles="100" size="200"></animation-explosion>
         </div>
         <div id="example2" class="block">
+          <div>
+            <h3>Custom Example</h3>
+            <p>Click button to show custom explosion example</p>
+          </div>
           <fieldset>
-            <div>
-              <h3>Example 2</h3>
-              <p>Click button to show explosion example 2</p>
-            </div>
-            <button id="explosion2Btn">Explode 2</button>
+            <section>
+              <select>
+                <option>Select Size</option>
+                <option>200</option>
+                <option>300</option>
+                <option>400</option>
+                <option>500</option>
+              </select>
+              <select>
+                <option>Select Particle Size</option>
+              </select>
+              <select>
+                <option>Select Speed</option>
+              </select>
+            </section>
+            <section>
+              <select>
+                <option>Select Num Bubbles</option>
+              </select>
+              <select>
+                <option>Bubbles Color</option>
+              </select>
+            </section>
+            <button id="explosion2Btn">Explode</button>
           </fieldset>
-          <animation-explosion id="explosion2" bubles="20" size="400" buble-colors="#F00,#0F0,#00F,#FF0,#0FF"></animation-explosion>
+          <animation-explosion id="explosion2" bubles="20" size="500" buble-colors="#F00,#0F0,#00F,#FF0,#0FF"></animation-explosion>
         </div>
       </main>
 
@@ -84,7 +107,7 @@
     </div>
 
     <script>
-      window.onload = function() {
+      function init() {
         document.getElementById('explosion1Btn').addEventListener('click', (ev) => {
           const explodeEvent = new CustomEvent('animation-explosion_explode', {
             detail: {
@@ -102,6 +125,7 @@
           document.dispatchEvent(explodeEvent);
         });
       }
+      window.addEventListener('load', init);
     </script>
   </body>
 </html>

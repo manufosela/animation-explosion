@@ -20,4 +20,8 @@ export const wcNameStyles = css`
     pointer-events: none;
     border-radius: 50%;
   }
+
+  .animation-explosion__canvas {
+    /* outline: 1px solid red; */
+  }
 `;
