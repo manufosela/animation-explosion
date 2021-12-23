@@ -1,61 +1,76 @@
-# animation-explosion [![npm-package](https://img.shields.io/badge/npmjs-package-red)](https://www.npmjs.com/package/animation-explosion) [![github](https://img.shields.io/badge/github-repository-green)](https://github.com/manu/animation-explosion) [![codepen-example](https://img.shields.io/badge/codepen-example-black)](https://codepen.io/manufosela/pen/wvzXVYd)
+# \<animation-explosion>
 
+This webcomponent follows the [open-wc](https://github.com/open-wc/open-wc) recommendation.
 
-Lit-Element web component to show a bubles explosion
+## Installation
 
-## Demo
-
+```bash
+npm i animation-explosion
 ```
-<h2>Basic animation-explosion Demo</h2>
-<h3>Demo</h3>
-<animation-explosion></animation-explosion>
 
-```
-<!---
-```
-<custom-element-demo>
-  <template>
-    <link rel="import" href="animation-explosion.html">
-    <next-code-block></next-code-block>
-  </template>
-</custom-element-demo>
-```
--->
+## Usage
+
 ```html
+<script type="module">
+  import 'animation-explosion/animation-explosion.js';
+</script>
+
 <animation-explosion></animation-explosion>
-
-```
-## Install
-```
-npm install animation-explosion
 ```
 
-## Viewing Your Element
+## Linting and formatting
 
-```
-npm run start
-```
+To scan the project for linting and formatting errors, run
 
-## Running Tests
-
-```
-$ npm run test
+```bash
+npm run lint
 ```
 
-## Build
+To automatically fix linting and formatting errors, run
+
+```bash
+npm run format
 ```
-$ npm run build
+
+## Testing with Web Test Runner
+
+To execute a single test run:
+
+```bash
+npm run test
 ```
 
-Your application is already set up to be tested via [web-component-tester](https://github.com/Polymer/web-component-tester). Run `polymer test` to run your application's test suite locally.
+To run the tests in interactive watch mode run:
 
-## Author
-**manufosela**
+```bash
+npm run test:watch
+```
 
-## License
+## Demoing with Storybook
 
-This project is licensed under the Apache 2.0 License - see the [LICENSE](LICENSE) file for details
+To run a local instance of Storybook for your component, run
 
-## Generated
+```bash
+npm run storybook
+```
 
-**generator-lit-element-base** - *yeoman npm package* - by [@manufosela](https://github.com/manufosela/generator-litelement-webcomponent)
+To build a production version of Storybook, run
+
+```bash
+npm run storybook:build
+```
+
+
+## Tooling configs
+
+For most of the tools, the configuration is in the `package.json` to minimize the amount of files in your project.
+
+If you customize the configuration a lot, you can consider moving them to individual files.
+
+## Local Demo with `web-dev-server`
+
+```bash
+npm start
+```
+
+To run a local development server that serves the basic demo located in `demo/index.html`

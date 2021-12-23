@@ -48,6 +48,8 @@ export class AnimationExplosion extends LitElement {
        * @type { Number }
        */
       size: { type: Number },
+      particleSize: { type: Number },
+      speed: { type: Number },
     };
   }
 
@@ -60,11 +62,17 @@ export class AnimationExplosion extends LitElement {
     this.bubleColors = ['#ffc000', '#ff3b3b', '#ff8400'];
     this.bubbles = 25;
     this.size = 200;
+    this.particleSize = 20;
+    this.particleRadiusMin = this.particleSize * 0.5;
+    this.particleRadiusMax = this.particleSize * 1.5;
+    this.speed = 10;
+    this.speedMin = this.speed * 0.5;
+    this.speedMax = this.speed * 1.5;
 
     this.particles = [];
     this.timeStartRef = {}
 
-    document.addEventListener('animation-explosion_explode', this.eventExplodeDispatched);
+    document.addEventListener('animation-explosion_explode', this.eventExplodeDispatched.bind(this));
   }
 
   firstUpdated() {
@@ -73,8 +81,9 @@ export class AnimationExplosion extends LitElement {
   }
 
   eventExplodeDispatched(ev) {
-    const detail = ev.detail;
-    const id = detail.id;
+    const {detail} = ev;
+    console.log('eventExplodeDispatched', detail);
+    const {id} = detail;
     if (id === this.id) {
       this.explode();
     }
@@ -96,10 +105,10 @@ export class AnimationExplosion extends LitElement {
       this.particles.push({
         x: this.size / 2,
         y: this.size / 2,
-        radius: this.ramdomValue(20, 30),
+        radius: this.ramdomValue(this.particleRadiusMin, this.particleRadiusMax),
         color: this.bubleColors[Math.floor(Math.random() * this.bubleColors.length)],
         rotation: this.ramdomValue(0, 360, true),
-        speed: this.ramdomValue(8, this.size/10),
+        speed: this.ramdomValue(this.speedMin, this.speedMax),
         friction: 0.9,
         opacity: this.ramdomValue(0.3, 1, true),
         yVel: 0,
@@ -114,8 +123,8 @@ export class AnimationExplosion extends LitElement {
     const canvasElement = document.createElement('canvas');
     canvasElement.id = id;
     const canvasContext = canvasElement.getContext('2d');
-    canvasElement.style.width = this.size + 'px';
-    canvasElement.style.height = this.size + 'px';
+    canvasElement.style.width = `${this.size  }px`;
+    canvasElement.style.height = `${this.size  }px`;
     canvasElement.style.zIndex = this.size / 2;
     canvasElement.width = this.size;
     canvasElement.height = this.size;

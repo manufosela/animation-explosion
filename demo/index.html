@@ -48,8 +48,7 @@
           </ul>
           <h3>Events</h3>
           <ul>
-            <li>animation-explosion_change-image</li>
-            <li>animation-explosion_change-image-without-reset</li>
+            <li>animation-explosion_explode</li>
           </ul>
           <p class="note">
             NOTE: Send element id into 
@@ -63,9 +62,9 @@
           <fieldset>
             <div>
               <h3>Example 1</h3>
-              <p>Click buttons to show explosion example 1</p>
+              <p>Click button to show explosion example 1</p>
             </div>
-            <button id="explosion1Btn">Explode</button>
+            <button id="explosion1Btn">Explode 1</button>
           </fieldset>
           <animation-explosion id="explosion1" bubles="100" size="200"></animation-explosion>
         </div>
@@ -73,9 +72,9 @@
           <fieldset>
             <div>
               <h3>Example 2</h3>
-              <p>Click buttons to show explosion example 2</p>
+              <p>Click button to show explosion example 2</p>
             </div>
-            <button id="explosion2Btn">Explode2</button>
+            <button id="explosion2Btn">Explode 2</button>
           </fieldset>
           <animation-explosion id="explosion2" bubles="20" size="400" buble-colors="#F00,#0F0,#00F,#FF0,#0FF"></animation-explosion>
         </div>
@@ -87,12 +86,20 @@
     <script>
       window.onload = function() {
         document.getElementById('explosion1Btn').addEventListener('click', (ev) => {
-          const animationExplosion = document.getElementById('explosion1');
-          animationExplosion.showExplosion(200,300);
+          const explodeEvent = new CustomEvent('animation-explosion_explode', {
+            detail: {
+              id: 'explosion1'
+            }
+          });
+          document.dispatchEvent(explodeEvent);
         });
         document.getElementById('explosion2Btn').addEventListener('click', (ev) => {
-          const animationExplosion = document.getElementById('explosion2');
-          animationExplosion.showExplosion(1,1);
+          const explodeEvent = new CustomEvent('animation-explosion_explode', {
+            detail: {
+              id: 'explosion2'
+            }
+          });
+          document.dispatchEvent(explodeEvent);
         });
       }
     </script>

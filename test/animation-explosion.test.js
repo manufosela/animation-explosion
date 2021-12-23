@@ -1,18 +1,32 @@
-/* eslint-disable no-unused-expressions */
-/* eslint-disable import/no-extraneous-dependencies */
-import { html, fixture, expect } from "@open-wc/testing";
-import "../animation-explosion";
+import { html } from 'lit';
+import { fixture, expect } from '@open-wc/testing';
 
-describe("AnimationExplosion", () => {
-  it("should have the basic template", async () => {
-    const el = await fixture(
-      html`
-        <animation-explosion></animation-explosion>
-      `
-    );
-    const base = el.shadowRoot.querySelector(".animation-explosion");
+import '../animation-explosion.js';
 
-    expect(base).not.to.be.null;
-    expect(el).dom.to.equalSnapshot();
+describe('AnimationExplosion', () => {
+  it('has a default title "Hey there" and counter 5', async () => {
+    const el = await fixture(html`<animation-explosion></animation-explosion>`);
+
+    expect(el.title).to.equal('Hey there');
+    expect(el.counter).to.equal(5);
+  });
+
+  it('increases the counter on button click', async () => {
+    const el = await fixture(html`<animation-explosion></animation-explosion>`);
+    el.shadowRoot.querySelector('button').click();
+
+    expect(el.counter).to.equal(6);
+  });
+
+  it('can override the title via attribute', async () => {
+    const el = await fixture(html`<animation-explosion title="attribute title"></animation-explosion>`);
+
+    expect(el.title).to.equal('attribute title');
+  });
+
+  it('passes the a11y audit', async () => {
+    const el = await fixture(html`<animation-explosion></animation-explosion>`);
+
+    await expect(el).shadowDom.to.be.accessible();
   });
 });

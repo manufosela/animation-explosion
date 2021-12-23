@@ -1,3 +1,3 @@
-import { AnimationExplosion } from "./src/AnimationExplosion";
+import { AnimationExplosion } from './src/AnimationExplosion.js';
 
-window.customElements.define(AnimationExplosion.is, AnimationExplosion);
+window.customElements.define('animation-explosion', AnimationExplosion);
